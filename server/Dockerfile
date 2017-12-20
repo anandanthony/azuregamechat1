@@ -4,6 +4,8 @@ ENV NODE_ENV=production
 
 ENV HOME=/home/appuser
 
+RUN echo $HOME
+
 RUN mkdir $HOME/chat
 
 COPY package.json $HOME/chat
