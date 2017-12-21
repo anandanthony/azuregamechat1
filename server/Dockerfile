@@ -14,7 +14,7 @@ COPY package.json /home/app
 
 RUN npm install
 
-COPY . /chat
+COPY . /app
 
 EXPOSE 3000
 
