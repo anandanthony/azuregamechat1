@@ -2,15 +2,15 @@ FROM mhart/alpine-node:8.9.3
 
 ENV NODE_ENV=production
 
-RUN adduser -ms /bin/bash newuser
+RUN addgroup -S app && adduser -S -g app app 
 
-USER newuser
+USER app
 
-RUN mkdir -p /home/newuser
+RUN mkdir -p /home/app
 
-WORKDIR /home/newuser
+WORKDIR /home/app
 
-COPY package.json /home/newuser
+COPY package.json /home/app
 
 RUN npm install
 
