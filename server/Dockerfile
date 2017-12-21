@@ -2,10 +2,15 @@ FROM mhart/alpine-node:8.9.3
 
 ENV NODE_ENV=production
 
-RUN mkdir -p /chat
-WORKDIR /chat
+RUN useradd -ms /bin/bash newuser
 
-COPY package.json $HOME/chat
+USER newuser
+
+RUN mkdir -p /home/newuser
+
+WORKDIR /home/newuser
+
+COPY package.json /home/newuser
 
 RUN npm install
 
