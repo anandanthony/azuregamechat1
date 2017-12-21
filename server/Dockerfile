@@ -14,7 +14,7 @@ COPY package.json /home/app
 
 RUN npm install
 
-COPY . /app
+COPY . /home/app
 
 EXPOSE 3000
 
