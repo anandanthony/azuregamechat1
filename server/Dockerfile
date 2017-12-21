@@ -2,7 +2,7 @@ FROM mhart/alpine-node:8.9.3
 
 ENV NODE_ENV=production
 
-RUN useradd -ms /bin/bash newuser
+RUN adduser -ms /bin/bash newuser
 
 USER newuser
 
