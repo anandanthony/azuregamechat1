@@ -2,19 +2,18 @@ FROM mhart/alpine-node:8.9.3
 
 ENV NODE_ENV=production
 
-RUN addgroup -S app && adduser -S -g app app 
+RUN addgroup -S appuser && adduser -S -g appuser appuser 
+ENV HOME=/home/appuser
+USER appuser
 
-USER app
+RUN mkdir $HOME/chat
+WORKDIR $HOME/chat
 
-RUN mkdir -p /home/app
-
-WORKDIR /home/app
-
-COPY package.json /home/app
+COPY package.json $HOME/chat
 
 RUN npm install
 
-COPY . /home/app
+COPY . $HOME/chat
 
 EXPOSE 3000
 
